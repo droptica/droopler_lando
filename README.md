@@ -19,7 +19,7 @@ Update your **settings.php** file with the following database parameters:
 * Port: 3306
 
 ```php
-$databases['default']['default'] = array (
+$databases['default']['default'] = [
   'database' => 'drupal9',
   'username' => 'drupal9',
   'password' => 'drupal9',
@@ -28,7 +28,7 @@ $databases['default']['default'] = array (
   'port' => '',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
-);
+];
 ```
 Don't forget to put public and private files into proper categories.
 
@@ -40,3 +40,13 @@ lando build-profile
 ```
 
 If you don't need the demo content, omit the `build-profile` command and run the Drupal install in the browser.
+
+# Compiling frontend
+* Please use `npm-theme` and `gulp-theme` commands to compile **droopler_theme**.
+* Please use `npm-subtheme` and `gulp-subtheme` commands to compile **droopler_subtheme**.
+
+```bash
+lando npm-theme install
+lando gulp-theme compile
+lando gulp-theme dist
+```
