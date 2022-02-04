@@ -39,7 +39,7 @@ lando start
 lando build-profile
 ```
 
-If you don't need the demo content, omit the `build-profile` command and run the Drupal install in the browser.
+If you don't need the demo content, use the command `prepare` instead of `build-profile`, and run the Drupal install in the browser.
 
 # Compiling frontend
 * Please use `npm-theme` and `gulp-theme` commands to compile **droopler_theme**.
