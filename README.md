@@ -2,7 +2,14 @@
 This repository provides with a lando configuration file for Droopler project.
 
 # Running existing Droopler
-Put the **.lando.yml** file in your project directory and run the following commands:
+Put the **.lando.yml** file in your project directory:
+```bash
+wget https://raw.githubusercontent.com/droptica/droopler_lando/master/.lando.yml
+
+# Optionally, change project name in the lando.yml file.
+sed -i 's/droopler/myproject/' .lando.yml
+```
+Then run the following commands:
 ```bash
 lando start
 lando prepare
@@ -33,13 +40,20 @@ $databases['default']['default'] = [
 Don't forget to put public and private files into proper categories.
 
 # Creating new Droopler installation
-Please download or clone the [Droopler Project](https://github.com/droptica/droopler_project) skeleton and copy the [.lando.yml](.lando.yml) inside it. Then run the following commands:
+Please download or clone the [Droopler Project](https://github.com/droptica/droopler_project) skeleton. Then run the following commands inside:
 ```bash
+wget https://raw.githubusercontent.com/droptica/droopler_lando/master/.lando.yml
+
+# Optionally, change project name in the lando.yml file.
+sed -i 's/droopler/myproject/' .lando.yml
+
 lando start
-lando build-profile
+lando build-full-profile
 ```
 
-If you don't need the demo content, use the command `prepare` instead of `build-profile`, and run the Drupal install in the browser.
+The `lando build-full-profile` command will install all features of Droopler, including d_blog, d_product and demo content. If you prefer a bare version instead, please use `lando build-bare-profile`.
+
+For the custom installation, use the command `prepare` instead of `build-*-profile`, and run `/install.php` in the browser. Remember to use `database` instead of `localhost` as MySQL host.
 
 # Compiling frontend
 * Please use `npm-theme` and `gulp-theme` commands to compile **droopler_theme**.
