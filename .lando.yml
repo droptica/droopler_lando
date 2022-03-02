@@ -32,8 +32,8 @@ tooling:
     description: Runs gulp on the subtheme.
     cmd: gulp
     dir: /app/web/themes/custom/droopler_subtheme
-  build-profile:
-    description: Builds the profile from the scratch.
+  build-full-profile:
+    description: Builds the full profile (all modules + demo content) from the scratch.
     cmd:
       - appserver: composer install
       - node: cd /app/web/profiles/contrib/droopler/themes/custom/droopler_theme && npm install
@@ -41,6 +41,15 @@ tooling:
       - node: cd /app/web/profiles/contrib/droopler/themes/custom/droopler_theme && gulp compile
       - node: cd /app/web/themes/custom/droopler_subtheme && gulp compile
       - appserver: drush site-install droopler install_configure_form.enable_update_status_module=TRUE install_configure_form.enable_update_status_emails=NULL --db-url='mysql://drupal9:drupal9@database/drupal9' --account-name=admin --account-pass=123 --site-name=droopler -y --locale=en droopler_additional_modules_form.module_d_blog=1 droopler_additional_modules_form.module_d_product=1 droopler_additional_modules_form.init_content=1 droopler_additional_modules_form.documentation=1
+  build-full-profile:
+    description: Builds the bare profile (without demo content) from the scratch.
+    cmd:
+      - appserver: composer install
+      - node: cd /app/web/profiles/contrib/droopler/themes/custom/droopler_theme && npm install
+      - node: cd /app/web/themes/custom/droopler_subtheme && npm install
+      - node: cd /app/web/profiles/contrib/droopler/themes/custom/droopler_theme && gulp compile
+      - node: cd /app/web/themes/custom/droopler_subtheme && gulp compile
+      - appserver: drush site-install droopler install_configure_form.enable_update_status_module=TRUE install_configure_form.enable_update_status_emails=NULL --db-url='mysql://drupal9:drupal9@database/drupal9' --account-name=admin --account-pass=123 --site-name=droopler -y --locale=en
   prepare:
     description: Prepares the codebase by downloading all vendors and compiling assets.
     cmd:
