@@ -64,3 +64,5 @@ lando npm-theme install
 lando gulp-theme compile
 lando gulp-theme dist
 ```
+# Troubleshooting
+If you are getting timeouts from the advagg module, please go to the `/admin/config/development/performance/advagg/js-minify?advagg=0` page and change the JS minification method from `JShrink` to `JSqueeze`.
