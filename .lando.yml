@@ -1,5 +1,5 @@
 name: droopler
-recipe: drupal9
+recipe: drupal10
 config:
   # Droopler project webroot.
   webroot: ./web
@@ -40,7 +40,7 @@ tooling:
       - node: cd /app/web/themes/custom/droopler_subtheme && npm install
       - node: cd /app/web/profiles/contrib/droopler/themes/custom/droopler_theme && gulp compile
       - node: cd /app/web/themes/custom/droopler_subtheme && gulp compile
-      - appserver: drush site-install droopler install_configure_form.enable_update_status_module=TRUE install_configure_form.enable_update_status_emails=NULL --db-url='mysql://drupal9:drupal9@database/drupal9' --account-name=admin --account-pass=123 --site-name=droopler -y --locale=en droopler_additional_modules_form.module_d_blog=1 droopler_additional_modules_form.module_d_product=1 droopler_additional_modules_form.init_content=1 droopler_additional_modules_form.documentation=1
+      - appserver: drush site-install droopler install_configure_form.enable_update_status_module=TRUE install_configure_form.enable_update_status_emails=NULL --db-url='mysql://drupal10:drupal10@database/drupal10' --account-name=admin --account-pass=123 --site-name=droopler -y --locale=en droopler_additional_modules_form.module_d_blog=1 droopler_additional_modules_form.module_d_product=1 droopler_additional_modules_form.init_content=1 droopler_additional_modules_form.documentation=1
   build-bare-profile:
     description: Builds the bare profile (without demo content) from the scratch.
     cmd:
@@ -49,7 +49,7 @@ tooling:
       - node: cd /app/web/themes/custom/droopler_subtheme && npm install
       - node: cd /app/web/profiles/contrib/droopler/themes/custom/droopler_theme && gulp compile
       - node: cd /app/web/themes/custom/droopler_subtheme && gulp compile
-      - appserver: drush site-install droopler install_configure_form.enable_update_status_module=TRUE install_configure_form.enable_update_status_emails=NULL --db-url='mysql://drupal9:drupal9@database/drupal9' --account-name=admin --account-pass=123 --site-name=droopler -y --locale=en
+      - appserver: drush site-install droopler install_configure_form.enable_update_status_module=TRUE install_configure_form.enable_update_status_emails=NULL --db-url='mysql://drupal10:drupal10@database/drupal10' --account-name=admin --account-pass=123 --site-name=droopler -y --locale=en
   prepare:
     description: Prepares the codebase by downloading all vendors and compiling assets.
     cmd:
